@@ -40,8 +40,14 @@ public class User {
     public void withdraw(String email,double value){
         for(CheckingAccount c : checkingAccounts) {
             if(this.email == email){
-                c.withdraw(value);
-                System.out.println("Rút tiền thành công, tài khoản của bạn còn: "+ c.getBalance());
+                if(c.getBalance() < value){
+                    System.out.println("Bạn k đủ tiền để rút");
+                }
+                else
+                {
+                    c.withdraw(value);
+                    System.out.println("Rút tiền thành công, tài khoản của bạn còn: "+ c.getBalance());
+                }
             }
         }
     }
@@ -49,8 +55,23 @@ public class User {
     public void deposit(String email,double value){
         for(SavingsAccount s: savingsAccounts){
             if(this.email == email){
-                s.deposit(value);
-                System.out.println("Nạp tiền thành công, tài khoản của bạn còn: " + s.getBalance());
+                if(value<200000.0){
+                    System.out.println("Tiền nạp phải lớn hơn 20.000");
+                }
+                else {
+                    s.deposit(value);
+                    System.out.println("Nạp tiền thành công, tài khoản của bạn còn: " + s.getBalance());
+                }
+            }
+        }
+    }
+
+
+    public void getInterest(String email){
+        for(SavingsAccount s: savingsAccounts){
+            if(this.email == email){
+                s.setBalance(s.getBalance()*s.getInterest()/12.0);
+                System.out.println("Lĩnh lãi thành công,tài khoản của bạn còn:" + s.getBalance());
             }
         }
     }
