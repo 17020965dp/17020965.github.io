@@ -55,7 +55,7 @@ public class User {
     public void deposit(String email,double value){
         for(SavingsAccount s: savingsAccounts){
             if(this.email == email){
-                if(value<200000.0){
+                if(value<20000.0){
                     System.out.println("Tiền nạp phải lớn hơn 20.000");
                 }
                 else {
