@@ -1,5 +1,8 @@
 package Ktra;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class NumberOfGoodPairs {
     public static void main(String[] args){
         int[] arr = {1,2,3,1,1,3};
@@ -7,14 +10,20 @@ public class NumberOfGoodPairs {
     }
 
     static int numIdenticalPairs(int[] nums){
-        int dem=0;
-        for(int i=0;i<nums.length;i++){
-            for(int j =i+1;j< nums.length;j++){
-                if(nums[i] == nums[j] && i<j ){
-                    dem++;
-                }
+        Map<Integer , Integer> data = new HashMap<>();
+        for(int num : nums) {
+            if(data.containsKey(num)){
+                int tmp = data.get(num) +1;
+                data.put(num,tmp);
+            }
+            else {
+                data.put(num,1);
             }
         }
-        return dem;
+        int count = 0;
+        for(int value : data.values()){
+            count += value * (value-1)/2;
+        }
+        return count;
     }
 }

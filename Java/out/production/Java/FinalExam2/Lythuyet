@@ -1,0 +1,52 @@
+Câu 1:
+- Nếu chi phí swap dữ liệu tốn kém hơn nhiều chi phí so sánh thì ta sử dụng kiểu sort là Selection sort vì thuật toán này trong mỗi vòng lặp sẽ liên tục so sánh để lấy được giá trị nhỏ nhất hoặc lớn nhất đưa lên đầu mảng cho đến khi mảng được sắp xếp xong.
+- Nếu chi phí so sánh dữ liệu lớn hơn nhiều chi phí swap thì ta sẽ chọn Bubble sort vì thuật toán này sẽ so sánh sẽ so sánh hai phần tử kề nhau, nếu vị trí của chúng chưa đúng thì sẽ đổi chỗ cho nhau. Việc này được thực hiện đến khi mảng sắp xếp đúng.
+
+- Mô phỏng trạng thái của mảng : [3,5,1,2]
+
+- Sử dụng Bubble sort :
+
++ Loop 1:
+    a[0] < a[1] -> a[0]= 3, a[1]=5
+    a[1] > a[2] -> a[1] = 1 , a[2] = 5
+    a[2] > a[3] -> a[2] = 2, a[3] =5
+
+    mảng: [3,1,2,5]
++ Loop 2:
+    a[0] > a[1] -> a[0] = 1 , a[1] = 3
+    a[1] > a[2] -> a[1] = 2, a[2] = 3
+
+    mảng: [1,2,3,5]
+
+
+
+
+- Sử dụng Insertion sort:
+
++ Loop 1:
+    a[0] < i[1] -> mảng : [3,5,1,2]
++ Loop 2:
+    a[2]<a[0] < a[1] -> a[0] =1 , a[1]=3,a[2]=5 -> mảng :[1,3,5,2];
++ Loop 3:
+    a[0] < a[3] < a[1] < a[2] -> a[0] =1 , a[1] = 2, a[2] =3 ,a[3] =3 -> mảng : [1,2,3,5]
+
+
+
+- Sử dụng Selection sort:
+
++ Loop 1:
+    a[2] min -> a[0] = 1, a[2] = 3 -> mảng : [1,5,3,2]
++ Loop 2:
+    a[3] min -> a[1] =2 , a[3] =5; -> mảng : [1,2,3,5];
+
+
+Câu 2:
+- External sort là việc sắp xếp dữ liệu được lưu ở ngoài bộ nhớ ngoài và chỉ một phàn được đưa vào bộ nhớ trong để sắp xếp. Kích thước dữ liệu lúc này thường rất lớn
+- Merge sort có tính stable còn Quick sort thì không.
+- Thực tế sử dụng Tim sort vì dữ liệu được lưu trữ thường lớn cần sử dụng Merge sort để đưa vào bộ nhớ trong để sắp xếp, khi Merge sort sắp xếp đến mức dữ liệu đủ nhỏ ta sẽ dùng Insertion sort để sắp xếp phần còn lại
+
+
+Câu 3:
+- Array là tập hợp các phần tử cố định được lưu trữ liên tiếp nhau trong từng ô nhớ. Ta dùng Array để lưu dữ liệu khi dữ liệu này thường xuyên được truy xuất và ít bị thay đổi kích thước mảng
+- List là một danh sách chứa các nút lưu trữ thông tin dữ liệu và địa chỉ nút kế tiếp. Ta dùng List để lưu dữ liệu khi những dữ liệu này có sự thay đổi liên tục về mặt kích thước và ít khi bị truy suất đến.
+

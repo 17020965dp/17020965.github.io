@@ -4,12 +4,17 @@ import java.util.Scanner;
 
 public class HappyNumber {
     public static void main(String [] args){
-        int n = 19;
+        int n = 3;
         System.out.println(isHappy(n));
     }
     static public boolean isHappy(int n) {
 
-        if (n <= 4) return n == 1;
+        if(n==1){
+            return true;
+        }
+        else if(n==4){
+            return false;
+        }
 
         int sum = n, tmp = 0;
 
